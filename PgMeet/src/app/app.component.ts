@@ -1,35 +1,26 @@
-import {Component} from '@angular/core';
-import {Todo} from './todo';
-import {TodoDataService} from './todo-data.service';
+import { Component } from '@angular/core';
+
+import { AnimationsService } from './shared/animations/index';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [TodoDataService]
+  styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent {
+  public activateAnimation = false;
 
-  newTodo: Todo = new Todo();
-
-  constructor(private todoDataService: TodoDataService) {
+  /**
+   * Constructor of the class
+   *
+   * @param {AnimationsService} animationService
+   */
+  public constructor(
+    private animationService: AnimationsService
+  ) {
+    this.animationService.activateAnimation$.subscribe(
+      (value) => this.activateAnimation = value
+    );
   }
-
-  addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
-  }
-
-  toggleTodoComplete(todo) {
-    this.todoDataService.toggleTodoComplete(todo);
-  }
-
-  removeTodo(todo) {
-    this.todoDataService.deleteTodoById(todo.id);
-  }
-
-  get todos() {
-    return this.todoDataService.getAllTodos();
-  }
-
 }

@@ -1,0 +1,28 @@
+<div class="normal-content" fxLayout="column" fxFill>
+  <h2>What is this?</h2>
+
+  <p>
+    This is a small demo about Angular2, Firebase and Material design. Main purpose of this demo application is to
+    show how powerful these components are together.
+  </p>
+
+  <div fxLayout="row" fxLayoutAlign="space-around start" fxFill>
+    <div fxLayout="column"  fxLayoutAlign="start center" fxFlex>
+      <h4>Used libraries</h4>
+
+      <app-about-list
+        [className]="'used-libraries'"
+        [items]="libraries"
+      ></app-about-list>
+    </div>
+
+    <div fxLayout="column"  fxLayoutAlign="start center" fxFlex>
+      <h4>External links</h4>
+
+      <app-about-list
+        [className]="'external-links'"
+        [items]="externalLinks"
+      ></app-about-list>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class PgMeetPage {
+export class Angular2FirebaseMaterialDemoPage {
   navigateTo() {
     return browser.get('/');
   }

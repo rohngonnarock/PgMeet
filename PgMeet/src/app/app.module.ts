@@ -1,25 +1,30 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
-import 'hammerjs';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
+import { SharedModule } from './shared/shared.module';
+import { LayoutModule } from './layout/layout.module';
+import { AboutModule } from './about/about.module';
+import { LoginModule } from './login/login.module';
+import { TodosModule } from './todos/todos.module';
+import { ChatModule } from './chat/chat.module';
 
 @NgModule({
-  
   declarations: [
     AppComponent,
-    TestComponent
   ],
   imports: [
-    MaterialModule,
-    BrowserModule,
-    FormsModule,
-    HttpModule
+    AppRoutingModule,
+    SharedModule,
+    LayoutModule,
+    AboutModule,
+    LoginModule,
+    TodosModule,
+    ChatModule,
   ],
-  providers: [],
-  bootstrap: [TestComponent]
+  bootstrap: [
+    AppComponent,
+  ],
 })
+
 export class AppModule { }

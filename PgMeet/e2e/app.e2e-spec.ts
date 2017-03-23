@@ -1,10 +1,10 @@
-import { PgMeetPage } from './app.po';
+import { Angular2FirebaseMaterialDemoPage } from './app.po';
 
-describe('pg-meet App', () => {
-  let page: PgMeetPage;
+describe('angular2-firebase-material-demo App', function() {
+  let page: Angular2FirebaseMaterialDemoPage;
 
   beforeEach(() => {
-    page = new PgMeetPage();
+    page = new Angular2FirebaseMaterialDemoPage();
   });
 
   it('should display message saying app works', () => {

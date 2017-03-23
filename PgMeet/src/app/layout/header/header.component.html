@@ -1,0 +1,45 @@
+<md-toolbar color="primary">
+  <button md-icon-button [md-menu-trigger-for]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <md-menu #menu="mdMenu">
+    <button md-menu-item [routerLink]="['/about']">About</button>
+
+    <div *ngIf="(af.auth | async)?.uid">
+      <button md-menu-item [routerLink]="['/todos']">Todos</button>
+      <button md-menu-item [routerLink]="['/chat']">Chat</button>
+      <button md-menu-item (click)="logout()">Logout</button>
+    </div>
+
+    <div *ngIf="!(af.auth | async)?.uid">
+      <button md-menu-item [routerLink]="['/login']">Login</button>
+    </div>
+  </md-menu>
+
+  <span>angular2-firebase-material-demo</span>
+
+  <div class="fill"></div>
+
+  <div *ngIf="(af.auth | async)?.uid">
+    <button
+      md-mini-fab
+      md-tooltip="Logout"
+      tooltip-position="below"
+      (click)="logout()"
+    >
+      <md-icon>power_settings_new</md-icon>
+    </button>
+  </div>
+
+  <div *ngIf="!(af.auth | async)?.uid">
+    <button
+      md-mini-fab
+      md-tooltip="Login with Facebook, Google, Twitter or GitHub"
+      tooltip-position="below"
+      [routerLink]="['/login']"
+    >
+      <md-icon>person</md-icon>
+    </button>
+  </div>
+</md-toolbar>
