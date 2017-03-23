@@ -31,8 +31,16 @@ before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
 
 # Actual test script, note that we need to pass --watch=false option for this
-script:
-  - ./node_modules/.bin/ng build && firebase deploy --token "$FIREBASE_TOKEN"
+#script:
+#  - ./node_modules/.bin/ng build && firebase deploy --token "$FIREBASE_TOKEN"
+
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+    project: "PgMeet"
+
+
 
 # And please send emails on errors
 notifications:
