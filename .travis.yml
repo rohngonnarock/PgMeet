@@ -1,20 +1,10 @@
-# We need sudo rights to setup testing environment correctly
-sudo: required
-
-# And the language is node.js :D
 language: node_js
-
-# Node.js versions that we're testing
 node_js:
-  - "stable"
   - "7"
 
-# OS that we're testing
-os:
-  - linux
-  - osx
-
-# Before install we need to do some OS specified stuff
+branches:
+  only:
+    - master
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew outdated xctool || brew upgrade xctool; fi
@@ -26,30 +16,12 @@ before_install:
 install:
   - npm install
 
-# Before actual tests we need to install angular-cli and finally start window manager if tests are run on linux
 before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
+  - npm install -g firebase-tools
+  - npm install -g wintersmith
 
-# Actual test script, note that we need to pass --watch=false option for this
-#script:
-#  - ./node_modules/.bin/ng build && firebase deploy --token "$FIREBASE_TOKEN"
-
-deploy:
-  provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
-    project: "PgMeet"
-
-
-
-# And please send emails on errors
-notifications:
-  email: true
-
-# whitelisted branches
-branches:
-  only:
-    - master
+script:
+  - ng build
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - firebase deploy --token=${FIREBASE_TOKEN}
