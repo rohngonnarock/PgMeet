@@ -7,7 +7,7 @@ language: node_js
 # Node.js versions that we're testing
 node_js:
   - "stable"
-  - "6"
+  - "7"
 
 # OS that we're testing
 os:
@@ -21,7 +21,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew cask install google-chrome; fi  # Karma CI
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export CHROME_BIN=chromium-browser; fi  # Karma CI
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
- # - cp src/app/config/config.ts_example src/app/config/config.ts
+  - cp src/app/config/config.ts_example src/app/config/config.ts
 
 install:
   - npm install

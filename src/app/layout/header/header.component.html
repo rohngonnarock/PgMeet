@@ -4,7 +4,7 @@
   </button>
 
   <md-menu #menu="mdMenu">
-    <button md-menu-item [routerLink]="['/about']">About</button>
+    <button md-menu-item [routerLink]="['/about']">Home</button>
 
     <div *ngIf="(af.auth | async)?.uid">
       <button md-menu-item [routerLink]="['/todos']">Todos</button>
@@ -17,7 +17,7 @@
     </div>
   </md-menu>
 
-  <span>angular2-firebase-material-demo</span>
+  <span>Pg Meet</span>
 
   <div class="fill"></div>
 
