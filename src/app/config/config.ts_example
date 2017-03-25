@@ -4,7 +4,7 @@ import { AuthProviders, AuthMethods } from 'angularfire2';
 export const FIREBASE_CONFIG = {
     apiKey: "EnvapiKey",
     authDomain: "EnvauthDomain",
-    databaseURL: "EnvdatabaseURL",
+    databaseURL: "https://EnvdatabaseURL",
     storageBucket: "EnvstorageBucket",
     messagingSenderId: "EnvmessagingSenderId"
 };
