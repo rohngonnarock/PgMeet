@@ -8,14 +8,13 @@ branches:
 
 before_install:
   - cp src/app/config/config.ts_example src/app/config/config.ts
- 
+  - ./before_script.sh
 
 install:
   - npm install
 
 before_script:
   - npm install -g firebase-tools
-  - ./before_script.sh
 
 script:
   - ng build --prod
