@@ -6,8 +6,8 @@ branches:
   only:
     - master
 
-before_install:
-  - cp src/app/config/config.ts_example src/app/config/config.ts
+#before_install:
+#  - cp src/app/config/config.ts_example src/app/config/config.ts
 
 install:
   - npm install
