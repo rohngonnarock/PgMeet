@@ -9,6 +9,11 @@ branches:
 before_install:
   - cp src/app/config/config.ts_example src/app/config/config.ts
   - chmod a+x ./before_script.sh
+  - sed -i 's/EnvapiKey/$apiKey/g' src/app/config/config.ts
+  - sed -i 's/EnvauthDomain/${authDomain}/g' src/app/config/config.ts
+  - sed -i 's/EnvdatabaseURL/${databaseURL}/g' src/app/config/config.ts
+  - sed -i 's/EnvstorageBucket/${storageBucket}/g' src/app/config/config.ts
+ # - sed -i 's/EnvmessagingSenderId/${messagingSenderId}/g' src/app/config/config.ts
 
 install:
   - npm install
